@@ -14,11 +14,21 @@ res = client.get do |req|
   req.headers['Authorization'] = "Bearer #{token}"
 end
 
-# レスポンスボディをパースする
-body = JSON.parse res.body
+http_response_status_code = res.status
 
-# レスポンスボディからimages > hidpiの値を取り出す
-body.each do |b|
-  hidpi_url = b["images"]["hidpi"]
-  puts hidpi_url if hidpi_url != nil
+if http_response_status_code == 200
+
+  # レスポンスボディをパースする
+  body = JSON.parse res.body
+
+  # レスポンスボディからimages > hidpiの値を取り出す
+  body.each do |b|
+    hidpi_url = b["images"]["hidpi"]
+    puts hidpi_url if hidpi_url != nil
+  end
+
+else
+
+  puts 'HTTP Status Code : ' + http_response_status_code.to_s
+
 end
