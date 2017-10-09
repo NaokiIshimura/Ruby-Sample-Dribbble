@@ -33,6 +33,10 @@ url = 'https://api.dribbble.com/v1/shots?list=animatedtimeframe=year'
 
 # 実行
 
+## sample.rb
+
+hidpiイメージのURLを取得する
+
 ```
 $ ruby sample.rb
 
@@ -48,4 +52,21 @@ https://cdn.dribbble.com/users/1461712/screenshots/3855875/surfing.png
 https://cdn.dribbble.com/users/97602/screenshots/3855784/croc-dribbble02.gif
 https://cdn.dribbble.com/users/1615730/screenshots/3854596/shot_2_2.png
 https://cdn.dribbble.com/users/1242672/screenshots/3855290/zonaa_preview11.png
+```
+
+## download_image_files.rb
+
+hidpiイメージをダウンロードする
+
+```
+$ ruby download_image_files.rb 
+
+current dir : /xxx
+mkdir : /xxx/image
+success
+download : https://cdn.dribbble.com/users/1042211/screenshots/3860184/dribbble_x2.5_copy_0.4x.png
+success
+save : /xxx/image/users_1042211_screenshots_3860184_dribbble_x2.5_copy_0.4x.png
+success
+...
 ```
