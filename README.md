@@ -35,7 +35,7 @@ url = 'https://api.dribbble.com/v1/shots?list=animatedtimeframe=year'
 
 ## sample.rb
 
-hidpiイメージのURLを取得する
+hidpiイメージのURLを取得して、標準出力に表示する
 
 ```
 $ ruby sample.rb
@@ -56,7 +56,8 @@ https://cdn.dribbble.com/users/1242672/screenshots/3855290/zonaa_preview11.png
 
 ## download_image_files.rb
 
-hidpiイメージをダウンロードする
+1. カレントディレクトリにimageディレクトリを作成して、imageディレクトリ内にhidpiイメージをダウンロードする
+2. imageディレクトリが存在してる場合は、イメージをimage_oldディレクトリに移動させた上で1.を実行する
 
 ```
 $ ruby download_image_files.rb 
