@@ -29,7 +29,6 @@ def get_image_url(token, url)
     return url_list
 
   else
-
     puts 'HTTP Status Code : ' + http_response_status_code.to_s
     exit
   end
@@ -66,9 +65,9 @@ def download_image(url_list)
       begin
         File.open(file_path, 'wb') {|fp| fp.write(image_file)}
         puts 'success'
-
       rescue
         puts 'fail'
+        exit
       end
     end
   end
@@ -84,13 +83,10 @@ def get_image_file(url)
   if res.status == 200
     puts 'success'
     return res.body
-
   else
-    puts 'fail'
-    return nil
-
+    puts 'HTTP Status Code : ' + http_response_status_code.to_s
+    exit
   end
-
 end
 
 # ダウンロード済みのファイルを移動する
@@ -115,7 +111,6 @@ def move_images
       puts 'fail'
       exit
     end
-
   end
 
   begin
@@ -127,7 +122,6 @@ def move_images
     puts 'fail'
     exit
   end
-
 end
 
 # tokenを設定する
