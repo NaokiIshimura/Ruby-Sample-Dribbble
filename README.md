@@ -71,3 +71,27 @@ save : /xxx/image/users_1042211_screenshots_3860184_dribbble_x2.5_copy_0.4x.png
 success
 ...
 ```
+
+## search_and_get_id.rb
+
+作品を検索してidを取得する
+
+```
+$ ruby search_and_get_id.rb
+
+  >>> get_html_body
+  URL : https://dribbble.com/search?q=iphone
+  >>> get_dribbble_id
+  id : 824210
+  id : 516103
+  id : 1746065
+  id : 613490
+  id : 1115596
+  id : 2121350
+  id : 1945593
+  id : 543645
+  id : 1109343
+  id : 606745
+  id : 2590603
+  id : 2620936
+```
