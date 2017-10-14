@@ -1,5 +1,5 @@
-require "faraday"
-require "json"
+require 'faraday'
+require 'json'
 
 # tokenを設定する
 token = ENV['DRIBBLE_TOKEN'] || 'xxxxxxxxxx'
@@ -16,19 +16,24 @@ end
 
 http_response_status_code = res.status
 
+# レスポンスステータスコードが200なら、
 if http_response_status_code == 200
 
   # レスポンスボディをパースする
   body = JSON.parse res.body
 
-  # レスポンスボディからimages > hidpiの値を取り出す
+  # jsonオブジェクトを1つずつ取り出す、
   body.each do |b|
-    hidpi_url = b["images"]["hidpi"]
-    puts hidpi_url if hidpi_url != nil
+    # jsonからimages > hidpiの値(URL)を取り出す
+    hidpi_url = b['images']['hidpi']
+    # 値(URL)がnilじゃなければ出力する
+    puts hidpi_url unless hidpi_url.nil?
   end
 
+# レスポンスステータスコードが200以外なら、
 else
 
+  # レスポンスステータスコードを出力する
   puts 'HTTP Status Code : ' + http_response_status_code.to_s
 
 end
