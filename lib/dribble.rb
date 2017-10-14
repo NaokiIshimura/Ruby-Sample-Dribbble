@@ -85,7 +85,7 @@ def get_dribbble_id(response_body)
     # puts 'title : ' + doc.title
 
     # xpathに一致するelementを取得する
-    selector = "//*[contains(@shot_id, 'screenshot-')]"
+    selector = "//*[contains(@id, 'screenshot-')]"
     elements = doc.xpath(selector)
 
     # 取得したidを格納する配列
@@ -95,11 +95,11 @@ def get_dribbble_id(response_body)
     elements.each do |e|
 
       # elementからidの値を取得
-      element_id = e.attribute("shot_id").value
+      element_id = e.attribute("id").value
       # elementのidから不要な文字列を取り除く
       dribble_id = element_id.gsub('screenshot-', '')
 
-      puts 'shot_id : ' + dribble_id
+      puts 'id : ' + dribble_id
 
       # 配列に追加
       dribble_id_list.push(dribble_id)
@@ -119,16 +119,16 @@ end
 
 # idからshot情報を取得する
 # @params [String] token
-# @params [Array]  shot_id_list
+# @params [Array]  id_list
 # @return [Array]  shot_url_list
-def get_url_from_id(token, shot_id_list)
+def get_url_from_id(token, id_list)
 
   puts '>>> get_url_from_id'
 
   shot_url_list = []
-  shot_id_list.each do |shot_id|
+  id_list.each do |id|
     # idからshotのhidpi画像URLを取得する
-    url = get_a_shot(token, shot_id)
+    url = get_a_shot(token, id)
     if url != nil
       shot_url_list.push(url)
     end
@@ -138,14 +138,14 @@ end
 
 # idからshotのhidpi画像URLを取得する
 # @param [String] token
-# @param [String] shot_id
+# @param [String] id
 # @return [String] hidpi_url
-def get_a_shot(token, shot_id)
+def get_a_shot(token, id)
   require "faraday"
   require "json"
 
   # リクエストURLを設定する
-  request_url = 'https://api.dribbble.com/v1/shots/' + shot_id
+  request_url = 'https://api.dribbble.com/v1/shots/' + id
 
   # リクエストを送信
   client = Faraday.new
