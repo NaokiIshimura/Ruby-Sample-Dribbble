@@ -2,9 +2,10 @@ require_relative './lib/dribble'
 require_relative './lib/file'
 
 # tokenを設定する
-token = 'xxxxxxxxxx'
-# リクエストURLを設定する
-url = 'https://api.dribbble.com/v1/shots?sort=recent'
+token = ENV['DRIBBLE_TOKEN'] || 'xxxxxxxxxx'
+
+# URLを設定する
+url = ENV['DRIBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
 
 # カレントディレクトリを出力
 puts 'current dir : ' + Dir.pwd

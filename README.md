@@ -11,29 +11,40 @@ Dribbble APIを利用してイメージのURLを取得する
 
 # 準備
 
-faradayをインストール
+## faradayをインストール
 
 ```
 $ gem install faraday
 ```
 
-tokenを設定
+## tokenを設定
+
+環境変数に設定
 
 ```
-token = 'xxxxxxxxxx'
+$ export DRIBBLE_TOKEN=xxxxx
 ```
 
-urlを設定
+または、プログラム内に直接記述
 
 ```
-# パラメータ指定なし(sort=popularity と同じ結果になる)
-url = 'https://api.dribbble.com/v1/shots'
+token = ENV['DRIBBLE_TOKEN'] || 'xxxxxxxxxx'
+```
 
-# パラメータ指定あり
-# list=animated, timeframe=yearを指定する場合、
-# sort=recentを指定する場合、
-url = 'https://api.dribbble.com/v1/shots?sort=recent'
-url = 'https://api.dribbble.com/v1/shots?list=animatedtimeframe=year'
+## urlを設定
+
+環境変数に設定 
+
+```
+$ export DRIBBLE_API_URL='https://api.dribbble.com/v1/shots?sort=recent'
+$ export DRIBBLE_SEARCH_URL='https://dribbble.com/search?q=iphone'
+```
+
+または、プログラム内に直接記述
+
+```
+url = ENV['DRIBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
+url = ENV['DRIBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
 ```
 
 # 実行

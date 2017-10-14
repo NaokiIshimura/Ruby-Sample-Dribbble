@@ -2,10 +2,10 @@ require "faraday"
 require "json"
 
 # tokenを設定する
-token = 'xxxxxxxxxx'
+token = ENV['DRIBBLE_TOKEN'] || 'xxxxxxxxxx'
 
-# リクエストURLを設定する
-url = 'https://api.dribbble.com/v1/shots?sort=recent'
+# URLを設定する
+url = ENV['DRIBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
 
 # リクエストを送信
 client = Faraday.new
