@@ -74,7 +74,7 @@ success
 
 ## search_and_get_image_url.rb
 
-作品を検索してidを取得する
+作品を検索して画像のURLを取得する
 
 ```
 $ ruby search_and_get_image_url.rb
