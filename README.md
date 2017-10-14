@@ -72,12 +72,12 @@ success
 ...
 ```
 
-## search_and_get_id.rb
+## search_and_get_image_url.rb
 
 作品を検索してidを取得する
 
 ```
-$ ruby search_and_get_id.rb
+$ ruby search_and_get_image_url.rb
 
   >>> get_html_body
   URL : https://dribbble.com/search?q=iphone
