@@ -1,4 +1,5 @@
-# 画像を保存する
+# 画像を取得して保存する
+# @param [Array] url_list
 def download_image(url_list)
   url_list.each do |url|
 
@@ -38,6 +39,8 @@ def download_image(url_list)
 end
 
 # 画像を取得する
+# @param [String] url
+# @return [Binary] response body(image)
 def get_image_file(url)
   require "faraday"
 
