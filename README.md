@@ -103,3 +103,28 @@ $ ruby search_and_get_image_url.rb
   URL : https://cdn.dribbble.com/users/25514/screenshots/2590603/pull-down-refresh-liquid-ramotion.gif
   URL : https://cdn.dribbble.com/users/25514/screenshots/2620936/pixty-ios-app-branding-logo-design-ramotion.png
 ```
+
+## search_and_download_image_files.rb
+
+1. 作品を検索する
+2. カレントディレクトリにimageディレクトリを作成して、imageディレクトリ内にhidpiイメージをダウンロードする
+3. imageディレクトリが存在してる場合は、イメージをimage_oldディレクトリに移動させた上で1.を実行する
+
+```
+$ ruby search_and_download_image_files.rb
+
+  ...
+  >>> get_html_body
+  URL : https://dribbble.com/search?q=iphone
+  >>> get_dribbble_id
+  id : 824210
+  ...
+  >>> get_url_from_id
+  URL : https://cdn.dribbble.com/users/14268/screenshots/824210/waffle.png
+  ...
+  download : https://cdn.dribbble.com/users/14268/screenshots/824210/waffle.png
+  success
+  save : /xxx/image/users_14268_screenshots_824210_waffle.png
+  success
+  ...
+```
