@@ -148,7 +148,7 @@ dribble_id_list = get_dribbble_id(response_body)
 #     "1115596", "2121350", "1945593", "543645",
 #     "1109343", "606745", "2590603", "2620936"]
 
-#idからurlを取得する
+# idからurlを取得する
 url_list = get_url_from_id(token, dribble_id_list)
 
 # => ["https://cdn.dribbble.com/users/14268/screenshots/824210/waffle.png",
