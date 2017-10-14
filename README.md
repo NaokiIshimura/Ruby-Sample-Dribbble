@@ -70,7 +70,7 @@ https://cdn.dribbble.com/users/1615730/screenshots/3854596/shot_2_2.png
 https://cdn.dribbble.com/users/1242672/screenshots/3855290/zonaa_preview11.png
 ```
 
-## download_image_files.rb
+## send_api_and_download_image_files.rb
 
 1. カレントディレクトリにimageディレクトリを作成して、imageディレクトリ内にhidpiイメージをダウンロードする
 2. imageディレクトリが存在してる場合は、イメージをimage_oldディレクトリに移動させた上で1.を実行する
