@@ -1,8 +1,8 @@
-require "faraday"
-require "json"
-
 # Dribbbleからhidpi画像のURLを取得する
 def get_image_url(token, url)
+
+  require "faraday"
+  require "json"
 
   # リクエストを送信
   client = Faraday.new
