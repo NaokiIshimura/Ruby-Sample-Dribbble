@@ -4,6 +4,11 @@ Dribbble APIを利用してイメージのURLを取得する
 
 ---
 
+# 公式サイト
+[Dribbble Developer](http://developer.dribbble.com/)
+
+---
+
 # 準備
 
 faradayをインストール
