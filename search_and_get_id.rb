@@ -78,8 +78,62 @@ def get_dribbble_id(response_body)
 
 end
 
+def get_url_from_id(token, id_list)
+
+  puts '>>> get_url_from_id'
+
+  url_list = []
+  id_list.each do |id|
+    url = get_a_shot(token, id)
+    if url != nil
+      url_list.push(url)
+    end
+  end
+  return url_list
+end
+
+def get_a_shot(token, id)
+  require "faraday"
+  require "json"
+
+  # リクエストURLを設定する
+  request_url = 'https://api.dribbble.com/v1/shots/' + id
+
+  # リクエストを送信
+  client = Faraday.new
+  res = client.get do |req|
+    req.url request_url
+    req.headers['Authorization'] = "Bearer #{token}"
+  end
+
+  http_response_status_code = res.status
+
+  if http_response_status_code == 200
+
+    # レスポンスボディをパースする
+    body = JSON.parse res.body
+
+    # レスポンスボディからimages > hidpiの値を取り出す
+    hidpi_url = body["images"]["hidpi"]
+    if hidpi_url != nil
+      puts 'URL : ' + hidpi_url
+      return hidpi_url
+    else
+      return nil
+    end
+
+  else
+
+    puts 'HTTP Status Code : ' + http_response_status_code.to_s
+    return nil
+  end
+end
+
 ##
 # Main
+
+# tokenを設定する
+token = 'xxxxxxxxxx'
 
 # URLを設定する
 url = 'https://dribbble.com/search?q=iphone'
@@ -93,3 +147,14 @@ dribble_id_list = get_dribbble_id(response_body)
 # => ["824210", "516103", "1746065", "613490",
 #     "1115596", "2121350", "1945593", "543645",
 #     "1109343", "606745", "2590603", "2620936"]
+
+#idからurlを取得する
+url_list = get_url_from_id(token, dribble_id_list)
+
+# => ["https://cdn.dribbble.com/users/14268/screenshots/824210/waffle.png",
+#     "https://cdn.dribbble.com/users/14268/screenshots/1746065/video.gif",
+#     "https://cdn.dribbble.com/users/25514/screenshots/2121350/delivery_card.gif",
+#     "https://cdn.dribbble.com/users/62319/screenshots/1945593/shot.gif",
+#     "https://cdn.dribbble.com/users/40806/screenshots/1109343/redesign_ios7_big.jpg",
+#     "https://cdn.dribbble.com/users/25514/screenshots/2590603/pull-down-refresh-liquid-ramotion.gif",
+#     "https://cdn.dribbble.com/users/25514/screenshots/2620936/pixty-ios-app-branding-logo-design-ramotion.png"]

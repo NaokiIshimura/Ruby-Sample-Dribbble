@@ -94,4 +94,12 @@ $ ruby search_and_get_id.rb
   id : 606745
   id : 2590603
   id : 2620936
+  >>> get_url_from_id
+  URL : https://cdn.dribbble.com/users/14268/screenshots/824210/waffle.png
+  URL : https://cdn.dribbble.com/users/14268/screenshots/1746065/video.gif
+  URL : https://cdn.dribbble.com/users/25514/screenshots/2121350/delivery_card.gif
+  URL : https://cdn.dribbble.com/users/62319/screenshots/1945593/shot.gif
+  URL : https://cdn.dribbble.com/users/40806/screenshots/1109343/redesign_ios7_big.jpg
+  URL : https://cdn.dribbble.com/users/25514/screenshots/2590603/pull-down-refresh-liquid-ramotion.gif
+  URL : https://cdn.dribbble.com/users/25514/screenshots/2620936/pixty-ios-app-branding-logo-design-ramotion.png
 ```
