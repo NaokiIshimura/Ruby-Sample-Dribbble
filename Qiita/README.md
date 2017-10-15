@@ -42,7 +42,7 @@ $ ruby sample3.rb
 
 ### 解説
 
-[Dribbble API で取得できないShotsの情報をスクレイピングで取得する \- Qiita](https://qiita.com/NaokiIshimura/items/b81ac4df4972e50f4098)
+[Dribbble API とスクレイピングを組み合わせて検索ワードに関連するShotsの情報を取得する \- Qiita](https://qiita.com/NaokiIshimura/items/b81ac4df4972e50f4098)
 
 ### サンプルプログラム
 
