@@ -2,10 +2,10 @@ require_relative './lib/dribble'
 require_relative './lib/file'
 
 # tokenを設定する
-token = ENV['DRIBBLE_TOKEN'] || 'xxxxxxxxxx'
+token = ENV['DRIBBBLE_TOKEN'] || 'xxxxxxxxxx'
 
 # URLを設定する
-url = ENV['DRIBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
+url = ENV['DRIBBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
 
 # カレントディレクトリを出力
 puts 'current dir : ' + Dir.pwd

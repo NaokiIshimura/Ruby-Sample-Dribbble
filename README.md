@@ -22,13 +22,13 @@ $ gem install faraday
 環境変数に設定
 
 ```
-$ export DRIBBLE_TOKEN=xxxxx
+$ export DRIBBBLE_TOKEN=xxxxx
 ```
 
 または、プログラム内に直接記述
 
 ```
-token = ENV['DRIBBLE_TOKEN'] || 'xxxxxxxxxx'
+token = ENV['DRIBBBLE_TOKEN'] || 'xxxxxxxxxx'
 ```
 
 ## urlを設定
@@ -36,15 +36,15 @@ token = ENV['DRIBBLE_TOKEN'] || 'xxxxxxxxxx'
 環境変数に設定 
 
 ```
-$ export DRIBBLE_API_URL='https://api.dribbble.com/v1/shots?sort=recent'
-$ export DRIBBLE_SEARCH_URL='https://dribbble.com/search?q=iphone'
+$ export DRIBBBLE_API_URL='https://api.dribbble.com/v1/shots?sort=recent'
+$ export DRIBBBLE_SEARCH_URL='https://dribbble.com/search?q=iphone'
 ```
 
 または、プログラム内に直接記述
 
 ```
-url = ENV['DRIBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
-url = ENV['DRIBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
+url = ENV['DRIBBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
+url = ENV['DRIBBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
 ```
 
 # 実行
