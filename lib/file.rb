@@ -57,22 +57,21 @@ def get_image_file(url)
 end
 
 # ダウンロード済みのファイルを移動する
-def move_images
-
-  old_dir = Dir.pwd + '/' + 'image'
-  new_dir = Dir.pwd + '/' + 'image_old'
+# @param [String] src ファイルの移動元ディレクトリ
+# @param [String] dst ファイルの移動先ディレクトリ
+def move_images(src, dst)
 
   # 移動元ディレクトリが存在しない場合はreturn
-  if FileTest.directory?(old_dir) == false
+  if FileTest.directory?(src) == false
     return
   end
 
   # 移動先ディレクトリが存在しない場合は作成する
-  if FileTest.directory?(new_dir) == false
+  if FileTest.directory?(dst) == false
 
     begin
-      puts 'mkdir : ' + new_dir
-      Dir.mkdir(new_dir)
+      puts 'mkdir : ' + dst
+      Dir.mkdir(dst)
       puts 'success'
     rescue
       puts 'fail'
@@ -81,9 +80,9 @@ def move_images
   end
 
   begin
-    puts 'move files : ' + old_dir + ' to ' + new_dir
+    puts 'move files : ' + src + ' to ' + dst
     require 'fileutils'
-    FileUtils.mv(Dir.glob("#{old_dir}/*"), new_dir + '/')
+    FileUtils.mv(Dir.glob("#{src}/*"), dst + '/')
     puts 'success'
   rescue
     puts 'fail'

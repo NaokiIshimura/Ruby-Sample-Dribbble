@@ -11,7 +11,10 @@ url = ENV['DRIBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
 puts 'current dir : ' + Dir.pwd
 
 # ダウンロード済みのファイルを移動する
-move_images
+# (不要ならコメントアウトする)
+src = Dir.pwd + '/' + 'image'
+dst = Dir.pwd + '/' + 'image_old'
+move_images(src, dst)
 
 # URLにアクセスしてレスポンスボディを取得する
 response_body = get_html_body(url)

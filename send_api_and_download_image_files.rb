@@ -11,7 +11,10 @@ url = ENV['DRIBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
 puts 'current dir : ' + Dir.pwd
 
 # ダウンロード済みのファイルを移動する
-move_images
+# (不要ならコメントアウトする)
+src = Dir.pwd + '/' + 'image'
+dst = Dir.pwd + '/' + 'image_old'
+move_images(src, dst)
 
 # 画像のURLを取得する
 url_list = get_image_url(token, url)
