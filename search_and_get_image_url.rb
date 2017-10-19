@@ -4,7 +4,11 @@ require_relative './lib/dribble'
 token = ENV['DRIBBBLE_TOKEN'] || 'xxxxxxxxxx'
 
 # URLを設定する
-url = ENV['DRIBBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
+if ARGV[0] != nil
+  url = 'https://dribbble.com/search?q=' + ARGV[0]
+else
+  url = ENV['DRIBBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
+end
 
 # URLにアクセスしてレスポンスボディを取得する
 response_body = get_html_body(url)

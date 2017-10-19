@@ -5,7 +5,11 @@ require_relative './lib/file'
 token = ENV['DRIBBBLE_TOKEN'] || 'xxxxxxxxxx'
 
 # URLを設定する
-url = ENV['DRIBBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
+if ARGV[0] != nil
+  url = 'https://dribbble.com/search?q=' + ARGV[0]
+else
+  url = ENV['DRIBBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
+end
 
 # カレントディレクトリを出力
 puts 'current dir : ' + Dir.pwd
