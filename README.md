@@ -17,41 +17,19 @@ Dribbble APIを利用してイメージのURLを取得する
 $ gem install faraday
 ```
 
-## tokenを設定
-
-環境変数に設定
-
-```
-$ export DRIBBBLE_TOKEN=xxxxx
-```
-
-または、プログラム内に直接記述
-
-```
-token = ENV['DRIBBBLE_TOKEN'] || 'xxxxxxxxxx'
-```
-
-## urlを設定
-
-環境変数に設定 
-
-```
-$ export DRIBBBLE_API_URL='https://api.dribbble.com/v1/shots?sort=recent'
-$ export DRIBBBLE_SEARCH_URL='https://dribbble.com/search?q=iphone'
-```
-
-または、プログラム内に直接記述
-
-```
-url = ENV['DRIBBBLE_API_URL'] || 'https://api.dribbble.com/v1/shots?sort=recent'
-url = ENV['DRIBBBLE_SEARCH_URL'] || 'https://dribbble.com/search?q=iphone'
-```
-
 # 実行
 
 ## sample.rb
 
 hidpiイメージのURLを取得して、標準出力に表示する
+
+```
+# tokenを設定する
+token = 'xxxxxxxxxx'
+
+# URLを設定する
+url = 'https://api.dribbble.com/v1/shots?sort=recent'
+```
 
 ```
 $ ruby sample.rb
@@ -76,7 +54,7 @@ https://cdn.dribbble.com/users/1242672/screenshots/3855290/zonaa_preview11.png
 2. imageディレクトリが存在してる場合は、イメージをimage_oldディレクトリに移動させた上で1.を実行する
 
 ```
-$ ruby download_image_files.rb 
+$ ruby send_api_and_download_image_files.rb <Client Access Token>
 
 current dir : /xxx
 mkdir : /xxx/image
@@ -93,7 +71,7 @@ success
 作品を検索して画像のURLを取得する
 
 ```
-$ ruby search_and_get_image_url.rb
+$ ruby search_and_get_image_url.rb <Client Access Token> <検索ワード>
 
   >>> get_html_body
   URL : https://dribbble.com/search?q=iphone
@@ -127,7 +105,7 @@ $ ruby search_and_get_image_url.rb
 3. imageディレクトリが存在してる場合は、イメージをimage_oldディレクトリに移動させた上で1.を実行する
 
 ```
-$ ruby search_and_download_image_files.rb
+$ ruby search_and_download_image_files.rb　<Client Access Token> <検索ワード>
 
   ...
   >>> get_html_body
